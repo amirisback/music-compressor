@@ -42,8 +42,9 @@ def compress_mp3_file(mp3_file_path):
     audio_file.export(output_file_path, format="mp3", parameters=["-ar", "11025"])
 
 
-for list_file in list_files:
-    data = dir_path + "/" + list_file
-    compress_mp3_file(data)
-
-print("\nDONE......................")
+if len(list_files) == 0:
+    print("No mp3 source")
+else:
+    for list_file in list_files:
+        data = dir_path + "/" + list_file
+        compress_mp3_file(data)
